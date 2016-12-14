@@ -418,10 +418,10 @@ module MTest
             "Skipped:\n#{meth}(#{klass}) #{e.message}\n"
           when MTest::Assertion
             @failures += 1
-            "Failure:\n#{meth}(#{klass}) #{e.message}\n"
+            "Failure:\n#{meth}(#{klass}) #{e.message}\n    #{e.backtrace.last}"
           else
             @errors += 1
-            "Error:\n#{meth}(#{klass}): #{e.class}, #{e.message}\n"
+            "Error:\n#{meth}(#{klass}): #{e.class}, #{e.message}\n    #{e.backtrace.last}"
           end
       @report << e
       e[0, 1]
